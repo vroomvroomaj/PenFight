@@ -3,7 +3,7 @@ import static javax.swing.JOptionPane.*;
 
 void setup(){
   size(2050,480);
-  frameRate(120);
+  frameRate(30);
   background(0);
   textSize(35);
       fill(0,120,120);
@@ -58,11 +58,11 @@ void draw(){
   else{
   //delay(1000);
     AHasTheDice(); 
-    AAHasThePen();
+    WhoeverHasThePen();
     BHasTheDice();
-    BBHasThePen();
+    WhoeverHasThePen();
     CHasTheDice(); 
-    CCHasThePen();   
+    WhoeverHasThePen();   
   }
 
 
@@ -81,7 +81,7 @@ void AHasTheDice(){
     AP = false;
     BP = true;
     CP = true;
-    AAHasThePen();
+    //WhoeverHasThePen();
     
   }
   else{
@@ -105,7 +105,7 @@ void BHasTheDice(){
     AP = true;
     BP = false;
     CP = true;
-    BBHasThePen();
+    //WhoeverHasThePen();
   }
   else{
     fill(255,0,0);
@@ -128,7 +128,7 @@ void CHasTheDice(){
     AP = true;
     BP = true;
     CP = false;
-    CCHasThePen();
+    //WhoeverHasThePen();
   }
   else{
     fill(255,0,0);
@@ -138,8 +138,9 @@ void CHasTheDice(){
   j++; 
   }
 }
+void WhoeverHasThePen(){
+  
 
-void AAHasThePen(){
   if(AP == false){
   AA[l] = l;
   textSize(15);
@@ -147,28 +148,22 @@ void AAHasThePen(){
   text(str(AA[l]),l*20,130);
   l++;
   }
-  
-}
 
-void BBHasThePen(){
-  if(BP == false){
+  else if(BP == false){
   BB[m] = m;
   textSize(15);
   fill(0,255,0);
   text(str(BB[m]),m*20,230);
   m++;
   }
-}
 
-void CCHasThePen(){
-  if(CP == false){
+  else if(CP == false){
   CC[n] = n;
   textSize(15);
   fill(0,255,0);
   text(str(CC[n]),n*20,330);
   n++;
   }
-  
 }
 
 int randomGenerator(){
