@@ -2,7 +2,8 @@ import fontastic.*;
 import static javax.swing.JOptionPane.*;
 
 void setup(){
-  size(2050,1000);
+  size(2050,480);
+  frameRate(120);
   background(0);
   textSize(35);
       fill(0,120,120);
@@ -55,20 +56,22 @@ void draw(){
       
   }
   else{
-  if(AP == true)
-    AHasTheDice();
-  if(BP == true)
+  //delay(1000);
+    AHasTheDice(); 
+    AAHasThePen();
     BHasTheDice();
-  if(CP == true)
-    CHasTheDice();
+    BBHasThePen();
+    CHasTheDice(); 
+    CCHasThePen();   
   }
 
 
-
+//delay(10);
 }
 
 void AHasTheDice(){
-  A[i] = round(random(1,6));
+  if(AP == true){
+  A[i] = randomGenerator();
   print(A[i]);
   print("~");
   textSize(30);
@@ -87,42 +90,35 @@ void AHasTheDice(){
   }
   
   i++;
+  }
 }
 
 void BHasTheDice(){
-  B[k] = round(random(1,6));
+  if(BP == true){
+  B[k] = randomGenerator();
   print(B[k]);
   print("~");
   textSize(30);
   if (B[k] == 4 || B[k] == 6){
-    translate(width/2, height/2);
-    rotate(k);
     fill(0,255,0);
     text(str(B[k]),k*18,200);
-    noFill();
-    stroke(255,0,0);rotateX(PI/1.1);
-    rect(0,160,2050,50);rotateX(PI/1.7);
-    
     AP = true;
     BP = false;
     CP = true;
     BBHasThePen();
   }
   else{
-    translate(width/2, height/2);
-    rotate(k);
-    fill(0,255,0);
+    fill(255,0,0);
     text(str(B[k]),k*18,200);
-    noFill();
-    stroke(255,0,0);rotateX(PI/1.1);
-    rect(0,160,2050,50);rotateX(PI/1.7);
   }
   
   k++; 
+  }
 }
 
 void CHasTheDice(){
-  C[j] = round(random(1,6));
+  if(CP == true){
+  C[j] = randomGenerator();
   print(C[j]);
   print("~");
   textSize(30);
@@ -140,6 +136,7 @@ void CHasTheDice(){
   }
   
   j++; 
+  }
 }
 
 void AAHasThePen(){
@@ -173,3 +170,15 @@ void CCHasThePen(){
   }
   
 }
+
+int randomGenerator(){
+  //delay(1000);
+  return(round(random(1,6)));
+}
+//void mousePressed() {
+//  loop();  // Holding down the mouse activates looping
+//}
+
+//void mouseReleased() {
+//  noLoop();  // Releasing the mouse stops looping draw()
+//} 
