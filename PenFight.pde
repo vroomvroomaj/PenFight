@@ -2,7 +2,7 @@ import fontastic.*;
 import static javax.swing.JOptionPane.*;
 
 void setup(){
-  size(2050,480);
+  size(2050,1000);
   background(0);
   textSize(35);
       fill(0,120,120);
@@ -95,16 +95,27 @@ void BHasTheDice(){
   print("~");
   textSize(30);
   if (B[k] == 4 || B[k] == 6){
+    translate(width/2, height/2);
+    rotate(k);
     fill(0,255,0);
     text(str(B[k]),k*18,200);
+    noFill();
+    stroke(255,0,0);rotateX(PI/1.1);
+    rect(0,160,2050,50);rotateX(PI/1.7);
+    
     AP = true;
     BP = false;
     CP = true;
     BBHasThePen();
   }
   else{
-    fill(255,0,0);
+    translate(width/2, height/2);
+    rotate(k);
+    fill(0,255,0);
     text(str(B[k]),k*18,200);
+    noFill();
+    stroke(255,0,0);rotateX(PI/1.1);
+    rect(0,160,2050,50);rotateX(PI/1.7);
   }
   
   k++; 
